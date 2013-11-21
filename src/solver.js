@@ -16,6 +16,17 @@ function splitBoard(board){
   console.log(splitBoard)
 }
 
-function checkRow(cell) {
+function getRow(cell) {
   return Math.floor(cell/9)
 }
+
+function getColumn(cell){
+  return (cell%9)
+}
+
+function getBox(cell){
+  var row = getRow(cell)
+  var column = getColumn(cell)
+  return 3*(Math.floor(row/3))+(Math.floor(column/3))
+}
+
