@@ -20,5 +20,9 @@ describe("splitBoard", function() {
   })
 })
 
-
+describe("checkRow", function(){
+  it("returns the row index of a particular cell", function(){
+    expect(checkRow(11)).toEqual(1)
+  })
+})
 

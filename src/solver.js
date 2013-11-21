@@ -1,4 +1,4 @@
-function checkString (string) {
+function checkString(string) {
   if (string.indexOf("0") === -1) {
     return false
   } else {
@@ -14,4 +14,8 @@ function splitBoard(board){
   }
   return splitBoard
   console.log(splitBoard)
+}
+
+function checkRow(cell) {
+  return Math.floor(cell/9)
 }
