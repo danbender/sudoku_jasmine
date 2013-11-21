@@ -16,17 +16,44 @@ function splitBoard(board){
   console.log(splitBoard)
 }
 
-function getRow(cell) {
+function whichRow(cell) {
   return Math.floor(cell/9)
 }
 
-function getColumn(cell){
+function whichColumn(cell){
   return (cell%9)
 }
 
-function getBox(cell){
-  var row = getRow(cell)
-  var column = getColumn(cell)
+function whichBox(cell){
+  var row = whichRow(cell)
+  var column = whichColumn(cell)
   return 3*(Math.floor(row/3))+(Math.floor(column/3))
+}
+
+function getRow(board, cell) {
+  var rowNumber = whichRow(cell)
+  return board[rowNumber]
+}
+
+function getColumn(board, cell){
+  var columnNumber = whichColumn(cell)
+  var column = []
+  for(i=0; i<board.length; i++){
+    column.push(board[i][columnNumber])
+  }
+  return column
+}
+
+function getBox(board, cell){
+  var boxNum = whichBox(cell)
+  var box = []
+  for(i=0; i<board.length; i++){
+    for(j=0; j<board[i].length; j++){
+      if(whichBox(j) === boxNum){
+        box.push(board[i][j])
+      }
+    }
+  }
+  return box
 }
 
