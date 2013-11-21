@@ -1,5 +1,5 @@
 beforeEach(function(){
-  unsolvedBoard = "1234507891234560789"
+  unsolvedBoard = "530678912672195348198342567"
   solvedBoard = "123456789123456789123456789"
   splittedededBoard = [['1','2','3','4','5','6','7','8','9'],
                        ['1','2','3','4','5','6','7','8','9'],
@@ -22,7 +22,7 @@ describe("splitBoard", function() {
   })
 })
 
-describe("which row", function(){
+describe("whichRow", function(){
   it("returns the row index of a particular cell", function(){
     expect(whichRow(11)).toEqual(1)
   })
@@ -55,5 +55,18 @@ describe("get current column", function() {
 describe("get current box", function(){
   it("returns the box associated with the current cell", function(){
     expect(getBox(splittedededBoard, 0)).toEqual(['1','2','3','1','2','3','1','2','3'])
+  })
+})
+
+describe("find the first zero aka empty cell", function() {
+  it("returns the index of the first empty cell", function() {
+    expect(getFirstZero(unsolvedBoard)).toEqual(2)
+  })
+})
+
+describe("solveCell", function(){
+  var unsolvedSplitBoard = splitBoard("530678912672195348198342567")
+  it("replaces empty cell with value that doesn't exist in it's row, column, or box", function(){
+    expect(solveCell(unsolvedSplitBoard,2)).toEqual('4')
   })
 })
