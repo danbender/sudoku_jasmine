@@ -1,9 +1,10 @@
 beforeEach(function(){
   unsolvedBoard = "530678912672195348198342567"
-  solvedBoard = "123456789123456789123456789"
-  splittedededBoard = [['1','2','3','4','5','6','7','8','9'],
+  solvedBoard = "123456739123456789123456769123456749"
+  splittedededBoard = [['1','2','3','4','5','6','7','3','9'],
                        ['1','2','3','4','5','6','7','8','9'],
-                       ['1','2','3','4','5','6','7','8','9']]
+                       ['1','2','3','4','5','6','7','6','9'],
+                       ['1','2','3','4','5','6','7','4','9']]
 })
 
 describe("checkString", function(){
@@ -48,13 +49,13 @@ describe("getRow", function(){
 
 describe("getColumn", function() {
   it("returns the column array associated with the current cell", function() {
-    expect(Board.getColumn(splittedededBoard, 9)).toEqual(['1','1','1'])
+    expect(Board.getColumn(splittedededBoard, 9)).toEqual(['1','1','1','1'])
   })
 })
 
 describe("getBox", function(){
   it("returns the box associated with the current cell", function(){
-    expect(Board.getBox(splittedededBoard, 2)).toEqual(['1','2','3','1','2','3','1','2','3'])
+    expect(Board.getBox(solvedBoard, 2)).toEqual(['1','2','3','1','2','3','1','2','3'])
   })
 })
 
@@ -72,7 +73,7 @@ describe("solveCell", function(){
 })
 
 describe("solveBoard", function() {
-  var superUnsolvedSplitBoard = Board.splitBoard("609238745274561398853947621486352179792614583531879264945723816328196457167485932")
+  var superUnsolvedSplitBoard = ("619030040270061008000047621486302079000014580031009060005720806320106057160400030")
 
   it("solves the Sudoku board until no zeroes are left", function() {
     expect(Solver.solveBoard(superUnsolvedSplitBoard)).toEqual("619238745274561398853947621486352179792614583531879264945723816328196457167485932")
