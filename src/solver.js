@@ -1,87 +1,83 @@
-function checkString(string) {
-  if (string.indexOf("0") === -1) {
-    return false
-  } else {
-    return true
-  }
-}
+Board = {
+  whichRow: function(cell) {
+    return Math.floor(cell/9)
+  },
 
-function splitBoard(board){
-  boardRows = board.match(/\d{9}/g)
-  splittedBoard = []
-  for(i=0; i<boardRows.length; i++){
-    splittedBoard.push(boardRows[i].split(""))
-  }
-  return splittedBoard
-}
+  whichColumn: function(cell){
+    return (cell%9)
+  },
 
-function whichRow(cell) {
-  return Math.floor(cell/9)
-}
+  whichBox: function(cell){
+    var row = Board.whichRow(cell)
+    var column = Board.whichColumn(cell)
+    return (3*(Math.floor(row/3)))+(Math.floor(column/3))
+  },
 
-function whichColumn(cell){
-  return (cell%9)
-}
+  getRow: function(board, cell) {
+    var rowNumber = Board.whichRow(cell) * 9
+    return board.substring(rowNumber,rowNumber+9).split("")
+  },
 
-function whichBox(cell){
-  var row = whichRow(cell)
-  var column = whichColumn(cell)
-  return 3*(Math.floor(row/3))+(Math.floor(column/3))
-}
+  getColumn: function(board, cell){
+    var columnNumber = Board.whichColumn(cell)
+    var column = []
+    for(var i=columnNumber; i<board.length; i+=9){
+      column.push(board[i])
+    }
+    return column
+  },
 
-function getRow(board, cell) {
-  var rowNumber = whichRow(cell)
-  return board[rowNumber]
-}
-
-function getColumn(board, cell){
-  var columnNumber = whichColumn(cell)
-  var column = []
-  for(i=0; i<board.length; i++){
-    column.push(board[i][columnNumber])
-  }
-  return column
-}
-
-function getBox(board, cell){
-  var boxNum = whichBox(cell)
-  var box = []
-  for(i=0; i<board.length; i++){
-    for(j=0; j<board[i].length; j++){
-      if(whichBox(j) === boxNum){
-        box.push(board[i][j])
+  getBox: function(board, cell){
+    var boxNum = Board.whichBox(cell)
+    var box = []
+    for(var i=0; i<board.length; i++){
+      if(Board.whichBox(i) === boxNum){
+        box.push(board[i])
       }
     }
+    return box
   }
-  return box
 }
 
-function getFirstZero(board){
-  return board.indexOf("0")
+Solver = {
+  getFirstZero: function(board){
+    return board.indexOf("0")
+  },
+
+  solveCell: function(board, cell) {
+    var row = Board.getRow(board, cell)
+    var column = Board.getColumn(board, cell)
+    var box = Board.getBox(board, cell)
+    var solvedRow = ['1','2','3','4','5','6','7','8','9']
+    var diffedArray = solvedRow.diff(row).diff(column).diff(box)
+    if(diffedArray.length === 1){
+      return diffedArray[0]
+    }else {
+      return '0'
+    }
+  },
+
+  solveBoard: function(board){
+    while(Solver.getFirstZero(board) !== -1){
+      for(var i=0; i<board.length; i++){
+        if(board[i] === '0'){
+          console.log("index", i, "solved", Solver.solveCell(board,i))
+          board = board.replaceAt(i,Solver.solveCell(board,i))
+        }
+      }
+    }
+    return board
+  }
 }
 
 Array.prototype.diff = function(array){
   return this.filter(function(i) {
-    return !(array.indexOf(i) > -1)
+    if(array){
+      return !(array.indexOf(i) > -1)
+    }
   })
 }
 
-function solveCell(board, cell) {
-  var row = getRow(board, cell)
-  var column = getColumn(board, cell)
-  var box = getBox(board, cell)
-  var solvedRow = ['1','2','3','4','5','6','7','8','9']
-  var diffedRow = solvedRow.diff(row)
-  diffedRow = diffedRow.diff(column)
-  diffedRow = diffedRow.diff(box)
-  if(diffedRow.length > 0){
-    return diffedRow[0]
-  }else {
-    return false
-  }
-}
-
-function solveBoard(board){
-  var emptyCell = getFirstZero(board)
-  solveCell(emptyCell)
+String.prototype.replaceAt = function(index, character) {
+  return this.substr(0, index) + character + this.substr(index+character.length);
 }
