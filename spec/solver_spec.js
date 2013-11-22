@@ -43,13 +43,13 @@ describe("whichBox", function(){
 
 describe("getRow", function(){
   it("returns the array associated with a particular row", function(){
-    expect(Board.getRow(splittedededBoard, 11)).toEqual(['1','2','3','4','5','6','7','8','9'])
+    expect(Board.getRow(solvedBoard, 11)).toEqual(['1','2','3','4','5','6','7','8','9'])
   })
 })
 
 describe("getColumn", function() {
   it("returns the column array associated with the current cell", function() {
-    expect(Board.getColumn(splittedededBoard, 9)).toEqual(['1','1','1','1'])
+    expect(Board.getColumn(solvedBoard, 9)).toEqual(['1','1','1','1'])
   })
 })
 
@@ -66,9 +66,8 @@ describe("find the first zero aka empty cell", function() {
 })
 
 describe("solveCell", function(){
-  var unsolvedSplitBoard = Board.splitBoard("530678912672195348198342567")
   it("replaces empty cell with value that doesn't exist in it's row, column, or box", function(){
-    expect(Solver.solveCell(unsolvedSplitBoard,2)).toEqual('4')
+    expect(Solver.solveCell(unsolvedBoard,2)).toEqual('4')
   })
 })
 

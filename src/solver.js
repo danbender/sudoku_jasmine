@@ -45,8 +45,8 @@ Board = {
   getColumn: function(board, cell){
     var columnNumber = Board.whichColumn(cell)
     var column = []
-    for(var i=0; i<board.length; i++){
-      column.push(board[columnNumber])
+    for(var i=columnNumber; i<board.length; i+=9){
+      column.push(board[i])
     }
     return column
   },
