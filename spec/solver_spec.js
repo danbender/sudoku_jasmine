@@ -1,26 +1,7 @@
 beforeEach(function(){
-  unsolvedBoard = "530678912672195348198342567"
-  solvedBoard = "123456739123456789123456769123456749"
-  splittedededBoard = [['1','2','3','4','5','6','7','3','9'],
-                       ['1','2','3','4','5','6','7','8','9'],
-                       ['1','2','3','4','5','6','7','6','9'],
-                       ['1','2','3','4','5','6','7','4','9']]
-})
-
-describe("checkString", function(){
-  it("checks the string for 0s", function(){
-    expect(Board.checkString(unsolvedBoard)).toBeTruthy()
-  })
-
-  it("returns false if no 0s", function(){
-    expect(Board.checkString(solvedBoard)).toBeFalsy()
-  })
-})
-
-describe("splitBoard", function() {
-  it("splits the string in a 9x9 array", function() {
-    expect(Board.splitBoard(solvedBoard)).toEqual(splittedededBoard)
-  })
+ unsolvedBoard = "530678912672195348198342567"
+ solvedBoard = "123456739123456789123456769123456749"
+ fullUnsolvedSudokuBoard = ("619030040270061008000047621486302079000014580031009060005720806320106057160400030")
 })
 
 describe("whichRow", function(){
@@ -72,9 +53,7 @@ describe("solveCell", function(){
 })
 
 describe("solveBoard", function() {
-  var superUnsolvedSplitBoard = ("619030040270061008000047621486302079000014580031009060005720806320106057160400030")
-
   it("solves the Sudoku board until no zeroes are left", function() {
-    expect(Solver.solveBoard(superUnsolvedSplitBoard)).toEqual("619238745274561398853947621486352179792614583531879264945723816328196457167485932")
+    expect(Solver.solveBoard(fullUnsolvedSudokuBoard)).toEqual("619238745274561398853947621486352179792614583531879264945723816328196457167485932")
   })
 })
