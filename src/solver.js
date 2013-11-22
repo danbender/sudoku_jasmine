@@ -94,6 +94,7 @@ Solver = {
     for(i=0; i<board.length; i++){
       var emptyCell = Solver.getFirstZero(board[i])
       // console.log(emptyCell)
+      //
       // console.log(Solver.solveCell(board,emptyCell))
       board[i][emptyCell] = Solver.solveCell(board,emptyCell)
     }
