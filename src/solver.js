@@ -89,7 +89,7 @@ Solver = {
       else{
         Solver.solveBoard(board)
       }
-    },200)
+    },1000)
   }
 
 

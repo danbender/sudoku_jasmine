@@ -1,0 +1,7 @@
+#sudoku_string{
+  font-size: 30px;
+  width: 170px;
+  position: absolute;
+  font-family: Helvetica;
+  word-wrap: break-word;
+}
