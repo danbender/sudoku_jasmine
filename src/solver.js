@@ -1,6 +1,6 @@
 function initialize(){
   board = document.getElementById("sudoku_string").innerText
-  document.getElementById("sudoku_string").innerText = Solver.solveBoard(board)
+  Solver.reRunSolver(board)
 }
 
 Board = {
@@ -63,16 +63,36 @@ Solver = {
   },
 
   solveBoard: function(board){
-    while(Solver.getFirstZero(board) !== -1){
-      for(var i=0; i<board.length; i++){
-        if(board[i] === '0'){
-          console.log("index", i, "solved", Solver.solveCell(board,i))
-          board = board.replaceAt(i,Solver.solveCell(board,i))
-        }
-      }
+    Solver.counter = 0
+    Solver.interval = setInterval(Solver.replaceWithDelay,100)
+  },
+
+  replaceWithDelay: function(){
+    var index = Solver.counter
+    if(index === board.length){
+      clearInterval(Solver.interval)
     }
-    return board
+    else{
+      if (board[index] === '0'){
+        board = board.replaceAt(index,Solver.solveCell(board,index))
+        document.getElementById("sudoku_string").innerText = board
+      }
+      Solver.counter++
+    }
+  },
+
+  reRunSolver: function(board){
+    Solver.bigInterval = setInterval(function(){
+      if(Solver.getFirstZero(board) === -1){
+        clearInterval(Solver.bigInterval)
+      }
+      else{
+        Solver.solveBoard(board)
+      }
+    },200)
   }
+
+
 }
 
 
