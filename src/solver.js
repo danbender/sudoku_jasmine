@@ -95,20 +95,4 @@ Solver = {
   }
 }
 
-// Dom = {
-//   stringSpanner: function(board){
-//     board = board.split('')
-//     for(var i=0; i<board.length; i++){
-//       // if board[i]
-//       board[i] = '<span>' + board[i] + '</span>'
-//     }
-//     return board.join('')
-//   },
-
-//   replaceStringWithSpans: function(board){
-//     document.getElementById("sudoku_string").innerHTML = Dom.stringSpanner(board)
-//   }
-// }
-
-
 window.addEventListener("load",initialize)
