@@ -1,6 +1,6 @@
 function initialize(){
-  board = document.getElementById("sudoku_string").innerText
-  Solver.reRunSolver(board)
+  board = document.getElementById("sudoku_string").innerText.split("")
+  // Solver.reRunSolver(board)
 }
 
 Board = {
@@ -20,7 +20,7 @@ Board = {
 
   getRow: function(board, cell) {
     var rowNumber = Board.whichRow(cell) * 9
-    return board.substring(rowNumber,rowNumber+9).split("")
+    return board.slice(rowNumber, rowNumber+9)
   },
 
   getColumn: function(board, cell){
@@ -70,12 +70,13 @@ Solver = {
   replaceWithDelay: function(){
     var index = Solver.counter
     if(index === board.length){
+      // console.log("clear!")
       clearInterval(Solver.interval)
     }
     else{
       if (board[index] === '0'){
         board = board.replaceAt(index,Solver.solveCell(board,index))
-        document.getElementById("sudoku_string").innerText = board
+        document.getElementById("sudoku_string").innerHTML = board
       }
       Solver.counter++
     }
@@ -87,13 +88,27 @@ Solver = {
         clearInterval(Solver.bigInterval)
       }
       else{
+        console.log("shit")
         Solver.solveBoard(board)
       }
     },1000)
   }
-
-
 }
+
+// Dom = {
+//   stringSpanner: function(board){
+//     board = board.split('')
+//     for(var i=0; i<board.length; i++){
+//       // if board[i]
+//       board[i] = '<span>' + board[i] + '</span>'
+//     }
+//     return board.join('')
+//   },
+
+//   replaceStringWithSpans: function(board){
+//     document.getElementById("sudoku_string").innerHTML = Dom.stringSpanner(board)
+//   }
+// }
 
 
 window.addEventListener("load",initialize)
