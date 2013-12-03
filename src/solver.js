@@ -80,9 +80,8 @@ Solver = {
     }
     else{
       if (Solver.boardVal[index] === '0'){
-        // console.log(Solver.board)
         Solver.board.children[index].innerHTML = Solver.solveCell(Solver.boardVal,index)
-        // Solver.boardVal[index] = Solver.solveCell(Solver.boardVal,index)
+        Solver.boardVal = Solver.boardVal.replaceAt(index, Solver.solveCell(Solver.boardVal,index))
       }
       Solver.counter++
     }
