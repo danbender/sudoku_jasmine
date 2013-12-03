@@ -1,5 +1,3 @@
-
-
 Board = {
   whichRow: function(cell) {
     return Math.floor(cell/9)
@@ -42,6 +40,13 @@ Board = {
 }
 
 Solver = {
+  initialize: function(){
+    Solver.board = document.getElementById("sudoku_string")
+    Solver.boardVal = document.getElementById("sudoku_string").innerText
+    BoardSetup.replaceStringWithDivs(Solver.boardVal)
+    Solver.reRunSolver(Solver.boardVal)
+  },
+
   getFirstZero: function(board){
     return board.indexOf("0")
   },
@@ -57,15 +62,6 @@ Solver = {
     }else {
       return '0'
     }
-  },
-
-
-
-  initialize: function(){
-    Solver.board = document.getElementById("sudoku_string")
-    Solver.boardVal = document.getElementById("sudoku_string").innerText
-    BoardSetup.replaceStringWithDivs(Solver.boardVal)
-    Solver.reRunSolver(Solver.boardVal)
   },
 
   solveBoard: function(board){
@@ -95,20 +91,17 @@ Solver = {
    }
  },
 
- reRunSolver: function(board){
-  Solver.bigInterval = setInterval(function(){
-    if(Solver.getFirstZero(board) === -1){
-      clearInterval(Solver.bigInterval)
-    }
-    else{
-      Solver.solveBoard(board)
-    }
-  },1000)
+  reRunSolver: function(board){
+   Solver.bigInterval = setInterval(function(){
+     if(Solver.getFirstZero(board) === -1){
+       clearInterval(Solver.bigInterval)
+     }
+     else{
+       Solver.solveBoard(board)
+     }
+   },1000)
+ }
 }
-}
-
-window.addEventListener("load",Solver.initialize)
-
 
 BoardSetup = {
   addDivsToCells: function(board){
@@ -129,3 +122,5 @@ BoardSetup = {
     return board
   }
 }
+
+window.addEventListener("load",Solver.initialize)
