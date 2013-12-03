@@ -1,11 +1,10 @@
 html {
-/*  margin: 0 auto;
-*/  padding: 0;
+  padding: 0;
 }
 
 body {
   font-size: 16px;
-   background: #2c3e50;
+  background: #2c3e50;
   color: #707B86;
   text-align: center;
   font-family: 'Helvetica', 'Arial', sans-serif;
@@ -15,26 +14,25 @@ body {
 
 #container {
   margin: 0 auto;
-  width: 75%;
+  width: 770px;
 }
 
 div:not(#container){
   display: inline-block;
-  width: 10%;
-  width: 2em;
-  height: 2em;
+  margin: 2px;
+  width: 70px;
+  width: 80px;
+  height: 80px;
   background: #1abc9c;
-  cursor: pointer;
-  border-radius: 50%;
-  line-height: 2em;
+  border-radius: 5px;
+  line-height: 80px;
 }
 
 
 h1 {
   color: #203142;
-  font-size: 3em;
-    text-shadow: 0 -1px 0 rgba(0,0,0,.5), 0 1px 0 rgba(255,255,255,.1);
-
+  font-size: 4em;
+  text-shadow: 0 -2px 0 rgba(0,0,0,.5), 0 2px 0 rgba(255,255,255,.1);
 }
 
 #sudoku_string{
@@ -42,17 +40,11 @@ h1 {
   font-size: 2em;
 }
 
-span:nth-of-type(9n) {
-  display: block;
-}
-
-.zero{
-  width: 2em;
-  height: 2em;
+.zero {
+  width: 80px;
+  height: 80px;
   background: #e74c3c !important;
-  cursor: pointer;
-  border-radius: 50%;
-  line-height: 2em;
+  line-height: 80px;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
@@ -72,15 +64,10 @@ span:nth-of-type(9n) {
 
 .flip, .flip:hover {
   background: #1abc9c !important;
-  -webkit-transform-origin: 3000% 3000%;
-  -moz-transform-origin: 3000% 3000%;
-  -ms-transform-origin: 3000% 3000%;
-  -o-transform-origin: 3000% 3000%;
-  transform-origin: 3000% 3000%;
-
   -webkit-transform: rotateX(.35deg) rotateY(360deg);
-     -moz-transform: rotateX(.35deg) rotateY(360deg);
-      -ms-transform: rotateX(.35deg) rotateY(360deg);
-       -o-transform: rotateX(.35deg) rotateY(360deg);
-          transform: rotateX(.35deg) rotateY(360deg);
+  -moz-transform: rotateX(.35deg) rotateY(360deg);
+  -ms-transform: rotateX(.35deg) rotateY(360deg);
+  -o-transform: rotateX(.35deg) rotateY(360deg);
+  transform: rotateX(.35deg) rotateY(360deg);
+
 }
