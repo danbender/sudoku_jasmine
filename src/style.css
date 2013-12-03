@@ -1,7 +1,86 @@
+html {
+/*  margin: 0 auto;
+*/  padding: 0;
+}
+
+body {
+  font-size: 16px;
+   background: #2c3e50;
+  color: #707B86;
+  text-align: center;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  line-height: 1.5;
+  text-align: center;
+}
+
+#container {
+  margin: 0 auto;
+  width: 75%;
+}
+
+div:not(#container){
+  display: inline-block;
+  width: 10%;
+  width: 2em;
+  height: 2em;
+  background: #1abc9c;
+  cursor: pointer;
+  border-radius: 50%;
+  line-height: 2em;
+}
+
+
+h1 {
+  color: #203142;
+  font-size: 3em;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.5), 0 1px 0 rgba(255,255,255,.1);
+
+}
+
 #sudoku_string{
-  font-size: 20px;
-  width: 170px;
-  position: absolute;
-  font-family: Helvetica;
-  /*word-wrap: break-word; */
+  word-wrap: break-word;
+  font-size: 2em;
+}
+
+span:nth-of-type(9n) {
+  display: block;
+}
+
+.zero{
+  width: 2em;
+  height: 2em;
+  background: #e74c3c !important;
+  cursor: pointer;
+  border-radius: 50%;
+  line-height: 2em;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.flip, .flip:hover {
+  background: #1abc9c !important;
+  -webkit-transform-origin: 3000% 3000%;
+  -moz-transform-origin: 3000% 3000%;
+  -ms-transform-origin: 3000% 3000%;
+  -o-transform-origin: 3000% 3000%;
+  transform-origin: 3000% 3000%;
+
+  -webkit-transform: rotateX(.35deg) rotateY(360deg);
+     -moz-transform: rotateX(.35deg) rotateY(360deg);
+      -ms-transform: rotateX(.35deg) rotateY(360deg);
+       -o-transform: rotateX(.35deg) rotateY(360deg);
+          transform: rotateX(.35deg) rotateY(360deg);
 }

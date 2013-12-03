@@ -59,7 +59,7 @@ Solver = {
     }
   },
 
-  // (function(param) { Solver.replaceWithDelay(board) })(board)
+
 
   initialize: function(){
     Solver.board = document.getElementById("sudoku_string")
@@ -82,6 +82,10 @@ Solver = {
       if (Solver.boardVal[index] === '0'){
         Solver.board.children[index].innerHTML = Solver.solveCell(Solver.boardVal,index)
         Solver.boardVal = Solver.boardVal.replaceAt(index, Solver.solveCell(Solver.boardVal,index))
+
+        if(Solver.boardVal[index] != '0'){
+        Solver.board.children[index].className += " flip"
+        }
       }
       Solver.counter++
     }
@@ -93,7 +97,6 @@ Solver = {
         clearInterval(Solver.bigInterval)
       }
       else{
-        console.log("shit")
         Solver.solveBoard(board)
       }
     },1000)
@@ -107,7 +110,11 @@ Dom = {
   stringSpanner: function(board){
     board = board.split('')
     for(var i=0; i<board.length; i++){
-      board[i] = '<span>' + board[i] + '</span>'
+      board[i] = '<div>' + board[i] + '</div>'
+      if(board[i] == "<div>0</div>"){
+        // ghetto solution FTW <3
+        board[i] = "<div class='zero'>0</div>"
+      }
     }
     return board.join('')
   },
