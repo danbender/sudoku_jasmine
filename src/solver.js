@@ -1,5 +1,3 @@
-
-
 Board = {
   whichRow: function(cell) {
     return Math.floor(cell/9)
@@ -42,6 +40,13 @@ Board = {
 }
 
 Solver = {
+  initialize: function(){
+    Solver.board = document.getElementById("sudoku_string")
+    Solver.boardVal = document.getElementById("sudoku_string").innerText
+    BoardSetup.replaceStringWithDivs(Solver.boardVal)
+    Solver.reRunSolver(Solver.boardVal)
+  },
+
   getFirstZero: function(board){
     return board.indexOf("0")
   },
@@ -59,15 +64,6 @@ Solver = {
     }
   },
 
-
-
-  initialize: function(){
-    Solver.board = document.getElementById("sudoku_string")
-    Solver.boardVal = document.getElementById("sudoku_string").innerText
-    Dom.replaceStringWithSpans(Solver.boardVal)
-    Solver.reRunSolver(Solver.boardVal)
-  },
-
   solveBoard: function(board){
     Solver.counter = 0
     Solver.interval = setInterval(Solver.replaceWithDelay,100)
@@ -79,35 +75,36 @@ Solver = {
       clearInterval(Solver.interval)
     }
     else{
-      if (Solver.boardVal[index] === '0'){
-        Solver.board.children[index].innerHTML = Solver.solveCell(Solver.boardVal,index)
-        Solver.boardVal = Solver.boardVal.replaceAt(index, Solver.solveCell(Solver.boardVal,index))
-
-        if(Solver.boardVal[index] != '0'){
-        Solver.board.children[index].className += " flip"
-        }
-      }
+      Solver.replaceCell(index)
       Solver.counter++
     }
   },
 
+  replaceCell: function(index){
+    if (Solver.boardVal[index] === '0'){
+      Solver.board.children[index].innerHTML = Solver.solveCell(Solver.boardVal,index)
+      Solver.boardVal = Solver.boardVal.replaceAt(index, Solver.solveCell(Solver.boardVal,index))
+
+      if(Solver.boardVal[index] != '0'){
+       Solver.board.children[index].className += " flip"
+     }
+   }
+ },
+
   reRunSolver: function(board){
-    Solver.bigInterval = setInterval(function(){
-      if(Solver.getFirstZero(board) === -1){
-        clearInterval(Solver.bigInterval)
-      }
-      else{
-        Solver.solveBoard(board)
-      }
-    },1000)
-  }
+   Solver.bigInterval = setInterval(function(){
+     if(Solver.getFirstZero(board) === -1){
+       clearInterval(Solver.bigInterval)
+     }
+     else{
+       Solver.solveBoard(board)
+     }
+   },1000)
+ }
 }
 
-window.addEventListener("load",Solver.initialize)
-
-
-Dom = {
-  stringSpanner: function(board){
+BoardSetup = {
+  addDivsToCells: function(board){
     board = board.split('')
     for(var i=0; i<board.length; i++){
       board[i] = '<div>' + board[i] + '</div>'
@@ -119,9 +116,11 @@ Dom = {
     return board.join('')
   },
 
-  replaceStringWithSpans: function(board){
-    board = Dom.stringSpanner(board)
+  replaceStringWithDivs: function(board){
+    board = BoardSetup.addDivsToCells(board)
     document.getElementById("sudoku_string").innerHTML = board
     return board
   }
 }
+
+window.addEventListener("load",Solver.initialize)
