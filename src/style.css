@@ -1,6 +1,6 @@
 html {
-  margin: 0 auto;
-  padding: 0;
+/*  margin: 0 auto;
+*/  padding: 0;
 }
 
 body {
@@ -17,36 +17,39 @@ body {
   width: 75%;
 }
 
-h1 {
-  color: #203142;
-  text-shadow: 0 -1px 0 rgba(0,0,0,.5), 0 1px 0 rgba(255,255,255,.1);
-  font-size: 3em;
+div{
+  display: inline-block;
+  width: 10%;
+  float: left;
 }
 
+h1 {
+  color: #203142;
+  font-size: 5em;
+}
 
 #sudoku_string{
   word-wrap: break-word;
-    font-size: 4em;
+  font-size: 2em;
+}
+
+span:nth-of-type(9n) {
+  /*display: block;*/
 
 }
-/*
-span:nth-of-type(n)  {
-  color: white;
-}*/
-
-/*span[href$="0"]*/
 
 .zero{
-  margin: 100px auto 50px;
-  width: 100px;
-  height: 100px;
+  border-radius: 50%;
+  margin: 2em auto 50px;
+  width: 2em;
+  height: 2em;
   background: #e74c3c;
   cursor: pointer;
   -webkit-transition: all 0.5s ease-in-out;
-     -moz-transition: all 0.5s ease-in-out;
-      -ms-transition: all 0.5s ease-in-out;
-       -o-transition: all 0.5s ease-in-out;
-          transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   -webkit-transform-origin: 50% 50%;
   -moz-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
@@ -59,10 +62,30 @@ span:nth-of-type(n)  {
   transform-style: preserve-3d;
 }
 
-.flipped {
-  -webkit-transform: rotateX(180deg) rotateY(180deg);
-     -moz-transform: rotateX(180deg) rotateY(180deg);
-      -ms-transform: rotateX(180deg) rotateY(180deg);
-       -o-transform: rotateX(180deg) rotateY(180deg);
-          transform: rotateX(180deg) rotateY(180deg);
+.flip, .flip:hover {
+  margin: 2em auto 50px;
+  width: 2em;
+  height: 2em;
+  background: #e74c3c;
+  cursor: pointer;
+  -webkit-transition: all 1s ease-out;
+     -moz-transition: all 1s ease-out;
+      -ms-transition: all 1s ease-out;
+       -o-transition: all 1s ease-out;
+          transition: all 1s ease-out;
+  -webkit-transform-origin: 30000% 30000%;
+  -moz-transform-origin: 30000% 30000%;
+  -ms-transform-origin: 30000% 30000%;
+  -o-transform-origin: 30000% 30000%;
+  transform-origin: 30000% 30000%;
+  transform-origin: 30000% 30000%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: rotateX(.35deg) rotateY(360deg);
+     -moz-transform: rotateX(.35deg) rotateY(360deg);
+      -ms-transform: rotateX(.35deg) rotateY(360deg);
+       -o-transform: rotateX(.35deg) rotateY(360deg);
+          transform: rotateX(.35deg) rotateY(360deg);
 }

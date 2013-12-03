@@ -81,6 +81,7 @@ Solver = {
     else{
       if (Solver.boardVal[index] === '0'){
         Solver.board.children[index].innerHTML = Solver.solveCell(Solver.boardVal,index)
+        Solver.board.children[index].className += " flip"
         Solver.boardVal = Solver.boardVal.replaceAt(index, Solver.solveCell(Solver.boardVal,index))
       }
       Solver.counter++
@@ -106,10 +107,10 @@ Dom = {
   stringSpanner: function(board){
     board = board.split('')
     for(var i=0; i<board.length; i++){
-      board[i] = '<span>' + board[i] + '</span>'
-      if(board[i] == "<span>0</span>"){
+      board[i] = '<div>' + board[i] + '</div>'
+      if(board[i] == "<div>0</div>"){
         // ghetto solution <3
-        board[i] = "<span class='zero'>0</span>"
+        board[i] = "<div class='zero'>0</div>"
       }
     }
     return board.join('')
