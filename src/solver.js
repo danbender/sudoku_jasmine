@@ -42,7 +42,7 @@ Board = {
 Solver = {
   initialize: function(){
     Solver.board = document.getElementById("sudoku_string")
-    Solver.boardVal = document.getElementById("sudoku_string").innerText
+    Solver.boardVal = document.getElementById("sudoku_string").textContent
     BoardSetup.replaceStringWithDivs(Solver.boardVal)
     Solver.reRunSolver(Solver.boardVal)
   },
