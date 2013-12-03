@@ -32,7 +32,33 @@ div:not(#container){
 h1 {
   color: #203142;
   font-size: 4em;
+  margin-bottom: 0;
   text-shadow: 0 -2px 0 rgba(0,0,0,.5), 0 2px 0 rgba(255,255,255,.1);
+}
+
+h5 {
+  text-align: center;
+}
+
+h5 a {
+  margin: 20px auto;
+  text-align: center;
+  color: #707B86;
+  text-decoration: none;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+h5 a:hover, h5 a:focus{
+  color: #fff;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 #sudoku_string{
