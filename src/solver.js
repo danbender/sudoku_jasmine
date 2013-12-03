@@ -1,7 +1,4 @@
-function initialize(){
-  board = document.getElementById("sudoku_string").innerText.split("")
-  // Solver.reRunSolver(board)
-}
+
 
 Board = {
   whichRow: function(cell) {
@@ -62,6 +59,15 @@ Solver = {
     }
   },
 
+  // (function(param) { Solver.replaceWithDelay(board) })(board)
+
+  initialize: function(){
+    Solver.board = document.getElementById("sudoku_string")
+    Solver.boardVal = document.getElementById("sudoku_string").innerText
+    Dom.replaceStringWithSpans(Solver.boardVal)
+    Solver.reRunSolver(Solver.boardVal)
+  },
+
   solveBoard: function(board){
     Solver.counter = 0
     Solver.interval = setInterval(Solver.replaceWithDelay,100)
@@ -69,14 +75,14 @@ Solver = {
 
   replaceWithDelay: function(){
     var index = Solver.counter
-    if(index === board.length){
-      // console.log("clear!")
+    if(index === Solver.boardVal.length){
       clearInterval(Solver.interval)
     }
     else{
-      if (board[index] === '0'){
-        board = board.replaceAt(index,Solver.solveCell(board,index))
-        document.getElementById("sudoku_string").innerHTML = board
+      if (Solver.boardVal[index] === '0'){
+        // console.log(Solver.board)
+        Solver.board.children[index].innerHTML = Solver.solveCell(Solver.boardVal,index)
+        // Solver.boardVal[index] = Solver.solveCell(Solver.boardVal,index)
       }
       Solver.counter++
     }
@@ -95,4 +101,21 @@ Solver = {
   }
 }
 
-window.addEventListener("load",initialize)
+window.addEventListener("load",Solver.initialize)
+
+
+Dom = {
+  stringSpanner: function(board){
+    board = board.split('')
+    for(var i=0; i<board.length; i++){
+      board[i] = '<span>' + board[i] + '</span>'
+    }
+    return board.join('')
+  },
+
+  replaceStringWithSpans: function(board){
+    board = Dom.stringSpanner(board)
+    document.getElementById("sudoku_string").innerHTML = board
+    return board
+  }
+}
