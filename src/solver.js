@@ -93,7 +93,6 @@ Solver = {
         clearInterval(Solver.bigInterval)
       }
       else{
-        console.log("shit")
         Solver.solveBoard(board)
       }
     },1000)
@@ -108,6 +107,10 @@ Dom = {
     board = board.split('')
     for(var i=0; i<board.length; i++){
       board[i] = '<span>' + board[i] + '</span>'
+      if(board[i] == "<span>0</span>"){
+        // ghetto solution <3
+        board[i] = "<span class='zero'>0</span>"
+      }
     }
     return board.join('')
   },

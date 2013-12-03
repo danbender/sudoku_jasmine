@@ -1,7 +1,68 @@
+html {
+  margin: 0 auto;
+  padding: 0;
+}
+
+body {
+  font-size: 16px;
+   background: #2c3e50;
+  color: #707B86;
+  text-align: center;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  line-height: 1.5;
+}
+
+#container {
+  margin: 0 auto;
+  width: 75%;
+}
+
+h1 {
+  color: #203142;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.5), 0 1px 0 rgba(255,255,255,.1);
+  font-size: 3em;
+}
+
+
 #sudoku_string{
-  font-size: 20px;
-  width: 170px;
-  position: absolute;
-  font-family: Helvetica;
-  /*word-wrap: break-word; */
+  word-wrap: break-word;
+    font-size: 4em;
+
+}
+/*
+span:nth-of-type(n)  {
+  color: white;
+}*/
+
+/*span[href$="0"]*/
+
+.zero{
+  margin: 100px auto 50px;
+  width: 100px;
+  height: 100px;
+  background: #e74c3c;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-in-out;
+     -moz-transition: all 0.5s ease-in-out;
+      -ms-transition: all 0.5s ease-in-out;
+       -o-transition: all 0.5s ease-in-out;
+          transition: all 0.5s ease-in-out;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.flipped {
+  -webkit-transform: rotateX(180deg) rotateY(180deg);
+     -moz-transform: rotateX(180deg) rotateY(180deg);
+      -ms-transform: rotateX(180deg) rotateY(180deg);
+       -o-transform: rotateX(180deg) rotateY(180deg);
+          transform: rotateX(180deg) rotateY(180deg);
 }
