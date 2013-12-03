@@ -15,7 +15,7 @@ body {
 
 #container {
   margin: 0 auto;
-  width: 75%;
+  width: 37%;
 }
 
 div:not(#container){
@@ -77,7 +77,6 @@ span:nth-of-type(9n) {
   -ms-transform-origin: 3000% 3000%;
   -o-transform-origin: 3000% 3000%;
   transform-origin: 3000% 3000%;
-
   -webkit-transform: rotateX(.35deg) rotateY(360deg);
      -moz-transform: rotateX(.35deg) rotateY(360deg);
       -ms-transform: rotateX(.35deg) rotateY(360deg);

@@ -17,7 +17,7 @@ Board = {
 
   getRow: function(board, cell) {
     var rowNumber = Board.whichRow(cell) * 9
-    return board.slice(rowNumber, rowNumber+9)
+    return board.slice(rowNumber, rowNumber+9).split("")
   },
 
   getColumn: function(board, cell){
