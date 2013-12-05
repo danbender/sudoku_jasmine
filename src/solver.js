@@ -123,4 +123,4 @@ BoardSetup = {
   }
 }
 
-window.addEventListener("load",Solver.initialize)
+window.addEventListener("DOMContentLoaded",Solver.initialize)
