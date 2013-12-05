@@ -93,7 +93,6 @@ Solver = {
 
   reRunSolver: function(board){
    Solver.bigInterval = setInterval(function(){
-  console.log(Solver.getFirstZero(Solver.boardVal))
      if(Solver.getFirstZero(Solver.boardVal) === -1){
        clearInterval(Solver.bigInterval)
      }
