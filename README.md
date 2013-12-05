@@ -5,7 +5,7 @@ Watch your computer solve Sudoku:
 [http://danbender.github.io/sudoku-jasmine/](http://danbender.github.io/sudoku-jasmine/)
 
 
-A Sudoku puzzle written in JavaScript and tested with Jasmine.
+A Sudoku puzzle written in JavaScript and tested with Jasmine. Designed using CSS 3 like transition, transform,
 Written by *[Salar Khan](https://github.com/salarkhan)* and me.
 
 
