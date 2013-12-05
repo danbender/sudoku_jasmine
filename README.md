@@ -6,7 +6,7 @@ Watch your computer solve Sudoku:
 
 
 A Sudoku puzzle written in JavaScript and tested with Jasmine.
-g
+
 Written by *[Salar Khan](https://github.com/salarkhan)* and *[Dan Bender](https://github.com/danbender)*.
 
 
