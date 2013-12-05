@@ -51,9 +51,3 @@ describe("solveCell", function(){
     expect(Solver.solveCell(unsolvedBoard,2)).toEqual('4')
   })
 })
-
-describe("solveBoard", function() {
-  xit("solves the Sudoku board until no zeroes are left", function() {
-    expect(Solver.solveBoard(fullUnsolvedSudokuBoard)).toEqual("619238745274561398853947621486352179792614583531879264945723816328196457167485932")
-  })
-})
