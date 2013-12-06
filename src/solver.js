@@ -105,8 +105,12 @@ Solver = {
 
 BoardSetup = {
   addDivsToCells: function(board){
+  // error if user input makes sudoku sad:
+  // if (board.length != 9*9) throw new Error('Invalid input (not a Sudoku?).');
     board = board.split('')
     for(var i=0; i<board.length; i++){
+      // wip: refactor as ternary:
+      // board[i] = '<div' + (board[i] == '0' ? ' class="zero"' : '') + '>' + board[i] + '</div>';
       board[i] = '<div>' + board[i] + '</div>'
       if(board[i] == "<div>0</div>"){
         // ghetto solution FTW <3
