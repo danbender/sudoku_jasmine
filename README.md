@@ -1,4 +1,4 @@
-Sudoku-jasmine
+Sudoku_jasmine
 ==============
 
 Watch your computer solve Sudoku:
